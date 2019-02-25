@@ -1,0 +1,35 @@
+#ifndef SPACE_CHOOO_GAME_H_
+#define SPACE_CHOOO_GAME_H_
+
+#include <SFML/Graphics.hpp>
+
+#include "config.h"
+
+class Game {
+ public:
+  Game() {
+    in_menu_ = true;
+    paused_ = false;
+    quit_ = false;
+    title_ = kAppName + " - v" + kAppVersion;
+  }
+  ~Game() {}
+  void clean();
+  void handleEvents();
+  void init();
+  bool isPaused();
+  bool quit();
+  void render();
+  void update();
+
+ private:
+  sf::Clock main_clock_;
+  sf::Event event_;
+  bool in_menu_;
+  bool paused_;
+  bool quit_;
+  sf::String title_;
+  sf::RenderWindow window_;
+};
+
+#endif  // SPACE_CHOOO_GAME_H_
