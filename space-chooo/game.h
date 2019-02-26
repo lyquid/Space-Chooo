@@ -5,6 +5,7 @@
 
 #include "config.h"
 #include "classes/menu.h"
+#include "classes/player.h"
 
 class Game {
  public:
@@ -30,6 +31,7 @@ class Game {
   bool in_menu_;
   Menu main_menu_;
   bool paused_;
+  Player player_;
   bool quit_;
   sf::String title_;
   sf::RenderWindow window_;

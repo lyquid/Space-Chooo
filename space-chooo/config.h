@@ -1,6 +1,8 @@
 #ifndef SPACE_CHOOO_CONFIG_H_
 #define SPACE_CHOOO_CONFIG_H_
 
+#include <SFML/Graphics.hpp>
+
 // app default strings
 const sf::String kAppName = "Space Chooo";
 const sf::String kAppVersion = "0.0"; 
