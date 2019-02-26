@@ -21,12 +21,18 @@
     <ClCompile Include="game.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="classes\menu.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="game.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="config.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="classes\menu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

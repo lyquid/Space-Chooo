@@ -21,7 +21,15 @@ void Game::handleEvents() {
               break;
           }
         } else { // not in menu
-
+          switch (event_.key.code) {
+            case sf::Keyboard::Escape:
+              in_menu_ = true;
+              break;
+            case sf::Keyboard::P:
+            case sf::Keyboard::F1:
+              paused_ = !paused_;
+              break;
+          }
         }
     }
   }
@@ -35,6 +43,12 @@ void Game::init() {
     sf::Style::Titlebar | sf::Style::Close
   );
   window_.setVerticalSyncEnabled(true);
+  // font for texts
+  if (!font_.loadFromFile("assets/computer_pixel-7.ttf")) {
+    exit(EXIT_FAILURE);
+  } else {
+    main_menu_.init(&font_);
+  }
 }
 
 bool Game::isPaused() {
@@ -48,9 +62,12 @@ bool Game::quit() {
 void Game::render() {
   window_.clear();
   if (in_menu_) {
-    // menu
+    main_menu_.draw(&window_);
   } else {
     // window_.draw();
+    if (paused_) {
+      
+    }
   }
   window_.display();
 }

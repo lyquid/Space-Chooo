@@ -4,6 +4,7 @@
 #include <SFML/Graphics.hpp>
 
 #include "config.h"
+#include "classes/menu.h"
 
 class Game {
  public:
@@ -25,7 +26,9 @@ class Game {
  private:
   sf::Clock main_clock_;
   sf::Event event_;
+  sf::Font font_;
   bool in_menu_;
+  Menu main_menu_;
   bool paused_;
   bool quit_;
   sf::String title_;
