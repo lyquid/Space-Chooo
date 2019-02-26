@@ -129,14 +129,19 @@
   <ItemGroup>
     <ClCompile Include="classes\menu.cc" />
     <ClCompile Include="classes\player.cc" />
+    <ClCompile Include="classes\ship.cc" />
     <ClCompile Include="game.cc" />
     <ClCompile Include="main.cc" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="classes\menu.h" />
     <ClInclude Include="classes\player.h" />
+    <ClInclude Include="classes\ship.h" />
     <ClInclude Include="config.h" />
     <ClInclude Include="game.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="assets\computer_pixel-7.ttf" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />

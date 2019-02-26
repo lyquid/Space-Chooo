@@ -4,6 +4,7 @@
 #include <SFML/Graphics.hpp>
 
 #include "../config.h"
+#include "ship.h"
 
 class Player {
  public:
@@ -11,6 +12,7 @@ class Player {
   ~Player() {}
 
  private:
+  Ship ship_;
 };
 
 #endif  // SPACE_CHOOO_CLASSES_PLAYER_H_

@@ -27,6 +27,9 @@
     <ClCompile Include="classes\player.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="classes\ship.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="game.h">
@@ -41,5 +44,13 @@
     <ClInclude Include="classes\player.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="classes\ship.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="assets\computer_pixel-7.ttf">
+      <Filter>Resource Files</Filter>
+    </Font>
   </ItemGroup>
 </Project>
