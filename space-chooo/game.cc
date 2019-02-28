@@ -68,7 +68,7 @@ void Game::render() {
   } else {
     ship_.draw(&window_);
     if (paused_) {
-      
+      // show some paused msg
     }
   }
   window_.display();
@@ -77,16 +77,16 @@ void Game::render() {
 void Game::update() {
   float delta_time = main_clock_.restart().asSeconds();
   // player movement
-  if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
+  if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) && !ship_.touchUp()) {
     ship_.moveUp(delta_time);
   }
-  if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
+  if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) && !ship_.touchDown()) {
     ship_.moveDown(delta_time);
   }
-  if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
+  if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) && !ship_.touchLeft()) {
     ship_.moveLeft(delta_time);
   }
-  if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
+  if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) && !ship_.touchRight()) {
     ship_.moveRight(delta_time);
   }
 }

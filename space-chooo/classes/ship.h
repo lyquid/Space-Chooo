@@ -20,6 +20,10 @@ class Ship {
   void moveLeft(float delta_time);
   void moveRight(float delta_time);
   void moveUp(float delta_time);
+  bool touchDown();
+  bool touchLeft();
+  bool touchRight();
+  bool touchUp();
 
  private:
   sf::CircleShape shape_;
