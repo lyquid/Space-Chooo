@@ -6,6 +6,7 @@
 #include "config.h"
 #include "classes/menu.h"
 #include "classes/player.h"
+#include "classes/ship.h"
 
 class Game {
  public:
@@ -33,6 +34,7 @@ class Game {
   bool paused_;
   Player player_;
   bool quit_;
+  Ship ship_;
   sf::String title_;
   sf::RenderWindow window_;
 };
