@@ -37,6 +37,8 @@ void Game::handleEvents() {
 
 void Game::init() {
   // aplication window
+  sf::ContextSettings settings;
+  settings.antialiasingLevel = 8;
   window_.create(
     sf::VideoMode(kScreenWidth, kScreenHeight, 32), 
     title_, 
@@ -64,7 +66,7 @@ void Game::render() {
   if (in_menu_) {
     main_menu_.draw(&window_);
   } else {
-    // window_.draw();
+    window_.draw(player_.drawShip());
     if (paused_) {
       
     }

@@ -14,5 +14,7 @@ const int kScreenWidth = 768;
 // menu default settings
 const int kOptionFontSize = 40;
 const int kTitleFontSize = 120;
+// ship default settings
+const int kShipSize = 20;
 
 #endif  // SPACE_CHOOO_CONFIG_H_

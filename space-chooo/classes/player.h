@@ -10,6 +10,7 @@ class Player {
  public:
   Player() {}
   ~Player() {}
+  sf::CircleShape drawShip();
 
  private:
   Ship ship_;
