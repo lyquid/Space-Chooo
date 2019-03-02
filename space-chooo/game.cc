@@ -67,6 +67,7 @@ void Game::render() {
     main_menu_.draw(&window_);
   } else {
     ship_.draw(&window_);
+    ship_.drawProjectiles(&window_);
     if (paused_) {
       // show some paused msg
     }
@@ -89,4 +90,9 @@ void Game::update() {
   if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) && !ship_.touchRight()) {
     ship_.moveRight(delta_time);
   }
+  if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && shoot_clock_.getElapsedTime().asMilliseconds() >= 100) {
+    shoot_clock_.restart();
+    ship_.shoot();
+  }
+  ship_.updateProjectiles(delta_time);
 }

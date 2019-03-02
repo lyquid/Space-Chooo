@@ -35,6 +35,7 @@ class Game {
   Player player_;
   bool quit_;
   Ship ship_;
+  sf::Clock shoot_clock_;
   sf::String title_;
   sf::RenderWindow window_;
 };
