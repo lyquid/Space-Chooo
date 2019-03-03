@@ -19,22 +19,21 @@ void UI::drawPauseText(sf::RenderWindow* window) {
 void UI::init(sf::Font* font) {
   // title
   initText(&title_, kAppName, font, kTitleFontSize);
-  centerTextOrigin(&title_);
   title_.setPosition(kScreenWidth / 2, kScreenHeight / 4);
   // options
   initText(&options_[0], "Press 1 to start", font, kOptionFontSize);
-  centerTextOrigin(&options_[0]);
   options_[0].setPosition(kScreenWidth / 2, kScreenHeight / 2);
   // pause
   initText(&pause_text_, kDefaultPauseMessage, font, kOptionFontSize);
-  centerTextOrigin(&pause_text_);
   pause_text_.setPosition(kScreenWidth / 2, kScreenHeight / 2);
 }
 
 void UI::initText(sf::Text* sf_text, sf::String text, sf::Font* font, int size) {
   sf_text->setFont(*font);
   sf_text->setCharacterSize(size);
+  sf_text->setOutlineThickness(0.8f);
   sf_text->setString(text);
+  centerTextOrigin(sf_text);
 }
 
 void UI::restartPauseFlashClock() {
