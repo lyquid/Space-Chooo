@@ -1,22 +1,22 @@
-#include "menu.h"
+#include "ui.h"
 
-void Menu::centerTextOrigin(sf::Text* text) {
+void UI::centerTextOrigin(sf::Text* text) {
   text->setOrigin(
     (text->getLocalBounds().left + text->getLocalBounds().width) / 2.f,
     (text->getLocalBounds().top + text->getLocalBounds().height) / 2.f
   );
 }
 
-void Menu::draw(sf::RenderWindow* window) {
+void UI::drawMenu(sf::RenderWindow* window) {
   window->draw(title_);
   window->draw(options_[0]);
 }
 
-void Menu::drawPauseText(sf::RenderWindow* window) {
+void UI::drawPauseText(sf::RenderWindow* window) {
   window->draw(paused_text_);
 }
 
-void Menu::init(sf::Font* font) {
+void UI::init(sf::Font* font) {
   // title
   initText(&title_, kAppName, font, kTitleFontSize);
   centerTextOrigin(&title_);
@@ -31,7 +31,7 @@ void Menu::init(sf::Font* font) {
   paused_text_.setPosition(kScreenWidth / 2, kScreenHeight / 2);
 }
 
-void Menu::initText(sf::Text* sf_text, sf::String text, sf::Font* font, int size) {
+void UI::initText(sf::Text* sf_text, sf::String text, sf::Font* font, int size) {
   sf_text->setFont(*font);
   sf_text->setCharacterSize(size);
   sf_text->setString(text);

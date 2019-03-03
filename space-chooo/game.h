@@ -4,7 +4,7 @@
 #include <SFML/Graphics.hpp>
 
 #include "config.h"
-#include "classes/menu.h"
+#include "classes/ui.h"
 #include "classes/player.h"
 #include "classes/ship.h"
 
@@ -30,7 +30,7 @@ class Game {
   sf::Event event_;
   sf::Font font_;
   bool in_menu_;
-  Menu main_menu_;
+  UI ui_;
   bool paused_;
   Player player_;
   bool quit_;

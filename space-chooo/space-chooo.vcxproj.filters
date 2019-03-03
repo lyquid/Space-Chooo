@@ -21,13 +21,13 @@
     <ClCompile Include="game.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="classes\menu.cc">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="classes\player.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="classes\ship.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="classes\ui.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -38,13 +38,13 @@
     <ClInclude Include="config.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="classes\menu.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="classes\player.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="classes\ship.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="classes\ui.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -49,7 +49,7 @@ void Game::init() {
   if (!font_.loadFromFile("assets/computer_pixel-7.ttf")) {
     exit(EXIT_FAILURE);
   } else {
-    main_menu_.init(&font_);
+    ui_.init(&font_);
   }
 }
 
@@ -64,13 +64,12 @@ bool Game::quit() {
 void Game::render() {
   window_.clear();
   if (in_menu_) {
-    main_menu_.draw(&window_);
+    ui_.drawMenu(&window_);
   } else {
     ship_.draw(&window_);
     ship_.drawProjectiles(&window_);
     if (paused_) {
-      main_menu_.drawPauseText(&window_);
-      // window_.draw(paused_text_);
+      ui_.drawPauseText(&window_);
     }
   }
   window_.display();
