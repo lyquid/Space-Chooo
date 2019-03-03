@@ -9,11 +9,15 @@ void UI::centerTextOrigin(sf::Text* text) {
 
 void UI::drawMenu(sf::RenderWindow* window) {
   window->draw(title_);
-  window->draw(options_[0]);
+  if (showFlashingText(1000)) {
+    window->draw(options_[0]);
+  }
 }
 
 void UI::drawPauseText(sf::RenderWindow* window) {
-  window->draw(pause_text_);
+  if (showFlashingText(500)) { 
+    window->draw(pause_text_);
+  }
 }
 
 void UI::init(sf::Font* font) {
@@ -36,15 +40,15 @@ void UI::initText(sf::Text* sf_text, sf::String text, sf::Font* font, int size) 
   centerTextOrigin(sf_text);
 }
 
-void UI::restartPauseFlashClock() {
-  show_pause_text_ = true;
-  pause_flash_.restart();
+void UI::restartFlashClock() {
+  show_flashing_text_ = true;
+  flash_clock_.restart();
 }
 
-bool UI::showPauseText() {
-  if (pause_flash_.getElapsedTime().asMilliseconds() > 500) {
-    pause_flash_.restart();
-    show_pause_text_ = !show_pause_text_;
+bool UI::showFlashingText(int interval) {
+  if (flash_clock_.getElapsedTime().asMilliseconds() > interval) {
+    flash_clock_.restart();
+    show_flashing_text_ = !show_flashing_text_;
   }
-  return show_pause_text_;
+  return show_flashing_text_;
 }

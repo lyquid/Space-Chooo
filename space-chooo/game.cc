@@ -29,7 +29,7 @@ void Game::handleEvents() {
             case sf::Keyboard::P:
             case sf::Keyboard::F1:
               paused_ = !paused_;
-              ui_.restartPauseFlashClock();
+              ui_.restartFlashClock();
               break;
           }
         }
@@ -68,7 +68,7 @@ void Game::render() {
   } else {
     ship_.draw(&window_);
     ship_.drawProjectiles(&window_);
-    if (paused_ && ui_.showPauseText()) {
+    if (paused_) {
       ui_.drawPauseText(&window_);
     }
   }
