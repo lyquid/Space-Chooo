@@ -4,6 +4,7 @@
 #include <SFML/Graphics.hpp>
 
 #include "config.h"
+#include "classes/background.h"
 #include "classes/player.h"
 #include "classes/ship.h"
 #include "classes/ui.h"

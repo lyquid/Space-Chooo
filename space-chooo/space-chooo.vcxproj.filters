@@ -30,6 +30,9 @@
     <ClCompile Include="classes\ui.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="classes\background.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="game.h">
@@ -45,6 +48,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="classes\ui.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="classes\background.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
