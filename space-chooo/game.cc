@@ -29,6 +29,7 @@ void Game::handleEvents() {
             case sf::Keyboard::P:
             case sf::Keyboard::F1:
               paused_ = !paused_;
+              ui_.restartPauseFlashClock();
               break;
           }
         }
@@ -67,7 +68,7 @@ void Game::render() {
   } else {
     ship_.draw(&window_);
     ship_.drawProjectiles(&window_);
-    if (paused_) {
+    if (paused_ && ui_.showPauseText()) {
       ui_.drawPauseText(&window_);
     }
   }
@@ -77,7 +78,7 @@ void Game::render() {
 void Game::update() {
   float delta_time = main_clock_.restart().asSeconds();
   if (paused_) {
-    // show pause menu or something
+    // do something
   } else {
     // player movement
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) && !ship_.touchUp()) {

@@ -13,7 +13,7 @@ void UI::drawMenu(sf::RenderWindow* window) {
 }
 
 void UI::drawPauseText(sf::RenderWindow* window) {
-  window->draw(paused_text_);
+  window->draw(pause_text_);
 }
 
 void UI::init(sf::Font* font) {
@@ -26,13 +26,26 @@ void UI::init(sf::Font* font) {
   centerTextOrigin(&options_[0]);
   options_[0].setPosition(kScreenWidth / 2, kScreenHeight / 2);
   // pause
-  initText(&paused_text_, kDefaultPauseMessage, font, kOptionFontSize);
-  centerTextOrigin(&paused_text_);
-  paused_text_.setPosition(kScreenWidth / 2, kScreenHeight / 2);
+  initText(&pause_text_, kDefaultPauseMessage, font, kOptionFontSize);
+  centerTextOrigin(&pause_text_);
+  pause_text_.setPosition(kScreenWidth / 2, kScreenHeight / 2);
 }
 
 void UI::initText(sf::Text* sf_text, sf::String text, sf::Font* font, int size) {
   sf_text->setFont(*font);
   sf_text->setCharacterSize(size);
   sf_text->setString(text);
+}
+
+void UI::restartPauseFlashClock() {
+  show_pause_text_ = true;
+  pause_flash_.restart();
+}
+
+bool UI::showPauseText() {
+  if (pause_flash_.getElapsedTime().asMilliseconds() > 500) {
+    pause_flash_.restart();
+    show_pause_text_ = !show_pause_text_;
+  }
+  return show_pause_text_;
 }
