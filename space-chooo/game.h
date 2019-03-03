@@ -4,9 +4,9 @@
 #include <SFML/Graphics.hpp>
 
 #include "config.h"
-#include "classes/ui.h"
 #include "classes/player.h"
 #include "classes/ship.h"
+#include "classes/ui.h"
 
 class Game {
  public:
