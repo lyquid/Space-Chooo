@@ -35,9 +35,9 @@ void Ship::shoot() {
   projectiles_.push_front(sf::Vector2f(shape_.getPosition().x, shape_.getPosition().y - kShipSize));
 }
 
- bool Ship::touchDown(){
-   return (shape_.getPosition().y + shape_.getRadius() >= kScreenHeight) ? true : false;
- }
+bool Ship::touchDown(){
+  return (shape_.getPosition().y + shape_.getRadius() >= kScreenHeight) ? true : false;
+}
 
 bool Ship::touchLeft() {
   return (shape_.getPosition().x - shape_.getRadius() <= 0.f) ? true : false;

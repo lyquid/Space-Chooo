@@ -69,7 +69,8 @@ void Game::render() {
     ship_.draw(&window_);
     ship_.drawProjectiles(&window_);
     if (paused_) {
-      // show some paused msg
+      main_menu_.drawPauseText(&window_);
+      // window_.draw(paused_text_);
     }
   }
   window_.display();
@@ -77,22 +78,26 @@ void Game::render() {
 
 void Game::update() {
   float delta_time = main_clock_.restart().asSeconds();
-  // player movement
-  if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) && !ship_.touchUp()) {
-    ship_.moveUp(delta_time);
+  if (paused_) {
+    // show pause menu or something
+  } else {
+    // player movement
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) && !ship_.touchUp()) {
+      ship_.moveUp(delta_time);
+    }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) && !ship_.touchDown()) {
+      ship_.moveDown(delta_time);
+    }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) && !ship_.touchLeft()) {
+      ship_.moveLeft(delta_time);
+    }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) && !ship_.touchRight()) {
+      ship_.moveRight(delta_time);
+    }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && shoot_clock_.getElapsedTime().asMilliseconds() >= 100) {
+      shoot_clock_.restart();
+      ship_.shoot();
+    }
+    ship_.updateProjectiles(delta_time);
   }
-  if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) && !ship_.touchDown()) {
-    ship_.moveDown(delta_time);
-  }
-  if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) && !ship_.touchLeft()) {
-    ship_.moveLeft(delta_time);
-  }
-  if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) && !ship_.touchRight()) {
-    ship_.moveRight(delta_time);
-  }
-  if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && shoot_clock_.getElapsedTime().asMilliseconds() >= 100) {
-    shoot_clock_.restart();
-    ship_.shoot();
-  }
-  ship_.updateProjectiles(delta_time);
 }

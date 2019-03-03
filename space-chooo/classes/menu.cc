@@ -12,16 +12,27 @@ void Menu::draw(sf::RenderWindow* window) {
   window->draw(options_[0]);
 }
 
+void Menu::drawPauseText(sf::RenderWindow* window) {
+  window->draw(paused_text_);
+}
+
 void Menu::init(sf::Font* font) {
-  title_.setFont(*font);
-  title_.setCharacterSize(kTitleFontSize);
-  title_.setString(kAppName);
+  // title
+  initText(&title_, kAppName, font, kTitleFontSize);
   centerTextOrigin(&title_);
   title_.setPosition(kScreenWidth / 2, kScreenHeight / 4);
   // options
-  options_[0].setFont(*font);
-  options_[0].setCharacterSize(kOptionFontSize);
-  options_[0].setString("Press 1 to start");
+  initText(&options_[0], "Press 1 to start", font, kOptionFontSize);
   centerTextOrigin(&options_[0]);
   options_[0].setPosition(kScreenWidth / 2, kScreenHeight / 2);
+  // pause
+  initText(&paused_text_, kDefaultPauseMessage, font, kOptionFontSize);
+  centerTextOrigin(&paused_text_);
+  paused_text_.setPosition(kScreenWidth / 2, kScreenHeight / 2);
+}
+
+void Menu::initText(sf::Text* sf_text, sf::String text, sf::Font* font, int size) {
+  sf_text->setFont(*font);
+  sf_text->setCharacterSize(size);
+  sf_text->setString(text);
 }
