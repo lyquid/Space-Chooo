@@ -14,7 +14,7 @@ class Ship {
     shape_.setPointCount(3);
     shape_.setFillColor(sf::Color::White);
     shape_.setOrigin(shape_.getRadius(), shape_.getRadius());
-    shape_.setPosition(kScreenWidth / 2, kScreenHeight - (kScreenHeight * 0.1f));
+    setInitialPosition();
   }
   ~Ship() {}
   void draw(sf::RenderWindow* window);
@@ -23,6 +23,7 @@ class Ship {
   void moveLeft(float delta_time);
   void moveRight(float delta_time);
   void moveUp(float delta_time);
+  void setInitialPosition();
   void shoot();
   bool touchDown();
   bool touchLeft();

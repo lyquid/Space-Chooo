@@ -24,6 +24,7 @@ void Game::handleEvents() {
           switch (event_.key.code) {
             case sf::Keyboard::Escape:
               in_menu_ = true;
+              ship_.setInitialPosition();
               break;
             case sf::Keyboard::P:
             case sf::Keyboard::F1:
@@ -37,8 +38,6 @@ void Game::handleEvents() {
 
 void Game::init() {
   // aplication window
-  /* sf::ContextSettings settings;
-  settings.antialiasingLevel = 8; */
   window_.create(
     sf::VideoMode(kScreenWidth, kScreenHeight, 32), 
     title_, 

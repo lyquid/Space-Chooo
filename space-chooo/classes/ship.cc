@@ -31,6 +31,10 @@ void Ship::moveUp(float delta_time) {
   shape_.move(0.f, -speed_ * delta_time);
 }
 
+void Ship::setInitialPosition() {
+  shape_.setPosition(kScreenWidth / 2, kScreenHeight - (kScreenHeight * 0.1f));
+}
+
 void Ship::shoot() {
   projectiles_.push_front(sf::Vector2f(shape_.getPosition().x, shape_.getPosition().y - kShipSize));
 }
