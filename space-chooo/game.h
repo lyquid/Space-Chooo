@@ -15,6 +15,7 @@ class Game {
     paused_ = false;
     quit_ = false;
     title_ = kAppName + " - v" + kAppVersion;
+    settings_.antialiasingLevel = 8;
   }
   ~Game() {}
   void clean();
@@ -34,6 +35,7 @@ class Game {
   bool paused_;
   Player player_;
   bool quit_;
+  sf::ContextSettings settings_;
   Ship ship_;
   sf::Clock shoot_clock_;
   sf::String title_;

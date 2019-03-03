@@ -37,8 +37,8 @@ void Game::handleEvents() {
 
 void Game::init() {
   // aplication window
-  sf::ContextSettings settings;
-  settings.antialiasingLevel = 8;
+  /* sf::ContextSettings settings;
+  settings.antialiasingLevel = 8; */
   window_.create(
     sf::VideoMode(kScreenWidth, kScreenHeight, 32), 
     title_, 
