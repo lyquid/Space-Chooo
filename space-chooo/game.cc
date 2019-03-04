@@ -24,6 +24,7 @@ void Game::handleEvents() {
           switch (event_.key.code) {
             case sf::Keyboard::Escape:
               in_menu_ = true;
+              background_.initStars();
               ship_.setInitialPosition();
               break;
             case sf::Keyboard::P:
@@ -63,6 +64,7 @@ bool Game::quit() {
 
 void Game::render() {
   window_.clear();
+  background_.draw(&window_);
   if (in_menu_) {
     ui_.drawMenu(&window_);
   } else {

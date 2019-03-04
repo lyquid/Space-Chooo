@@ -36,7 +36,7 @@ void Ship::setInitialPosition() {
 }
 
 void Ship::shoot() {
-  projectiles_.push_front(sf::Vector2f(shape_.getPosition().x, shape_.getPosition().y - kShipSize));
+  projectiles_.push_front(sf::Vector2f(shape_.getPosition().x, shape_.getPosition().y - kShipDefaultSize));
 }
 
 bool Ship::touchDown(){

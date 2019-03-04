@@ -28,9 +28,10 @@ class Game {
   void update();
 
  private:
-  sf::Clock main_clock_;
+  Background background_;
   sf::Event event_;
   sf::Font font_;
+  sf::Clock main_clock_;
   bool in_menu_;
   UI ui_;
   bool paused_;
