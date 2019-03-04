@@ -10,6 +10,7 @@
 struct Star {
   sf::Vector2f position;
   int intensity;
+  float radius;
 };
 
 class Background {
@@ -21,11 +22,12 @@ class Background {
   ~Background() {}
   void draw(sf::RenderWindow* window);
   void drawStars(sf::RenderWindow* window);
+  Star generateStar(bool playing);
   void initStars();
+  void update(float delta_time);
 
  private:
   float speed_;
-  // std::list <sf::Vector2f> stars_;
   std::list <Star> stars_;
 };
 

@@ -13,7 +13,7 @@ class Game {
  public:
   Game() {
     in_menu_ = true;
-    paused_ = false;
+    paused_ = true;
     quit_ = false;
     title_ = kAppName + " - v" + kAppVersion;
     settings_.antialiasingLevel = 8;

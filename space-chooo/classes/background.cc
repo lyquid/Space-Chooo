@@ -8,8 +8,8 @@ void Background::drawStars(sf::RenderWindow* window) {
   std::list <Star>::iterator star;
   sf::CircleShape circle;
   for (star = stars_.begin(); star != stars_.end(); ++star) {
-    circle.setRadius(1);
-    circle.setOrigin(1, 1);
+    circle.setRadius(star->radius);
+    circle.setOrigin(star->radius, star->radius);
     circle.setPosition(star->position.x, star->position.y);
     circle.setFillColor(sf::Color::White);
     switch (star->intensity) {
@@ -30,38 +30,60 @@ void Background::drawStars(sf::RenderWindow* window) {
   }
 } 
 
-void Background::initStars() {
-  int intensity = 0;
-  int star_num = rand() % 250 + 150;
+Star Background::generateStar(bool playing) {
+  int intensity = rand() % 10 + 1;
   float rand_x, rand_y;
+  Star star;
+  switch (intensity) {
+    case 1:
+    case 2:
+    case 3:
+      intensity = 0;
+      break;
+    case 4:
+    case 5:
+    case 6:
+      intensity = 1;
+      break;
+    case 7:
+    case 8:
+    case 9:
+      intensity = 2;
+      break;
+    case 10:
+      intensity = 3;
+      break;
+  }
+  star.intensity = intensity;
+  rand_x = (float) (rand() % kScreenWidth);
+  (playing) ? rand_y = 0 : rand_y = (float) (rand() % kScreenHeight);
+  star.position = sf::Vector2f(rand_x, rand_y);
+  star.radius = 1.f;
+  return star;
+}
+
+void Background::initStars() {
+  int star_num = rand() % 200 + 100;
   stars_.clear();
   for (int i = 0; i < star_num; ++i) {
-    Star star;
-    intensity = rand() % 10 + 1;
-    switch (intensity) {
-      case 1:
-      case 2:
-      case 3:
-        intensity = 0;
-        break;
-      case 4:
-      case 5:
-      case 6:
-        intensity = 1;
-        break;
-      case 7:
-      case 8:
-      case 9:
-        intensity = 2;
-        break;
-      case 10:
-        intensity = 3;
-        break;
+    stars_.push_front(generateStar(false));
+  }
+}
+
+void Background::update(float delta_time) {
+  if (!stars_.empty()) {
+    int star_chance = rand() % 10;
+    std::list <Star>::iterator star = stars_.begin();
+    while (star != stars_.end()) {
+      if (star->position.y - star->radius > kScreenHeight) {
+        star = stars_.erase(star);
+      } else {
+        star->position.y += (speed_ * ((delta_time * (star->intensity + 1)))) / 30.f;
+        ++star;
+      }
     }
-    star.intensity = intensity;
-    rand_x = (float) (rand() % kScreenWidth);
-    rand_y = (float) (rand() % kScreenHeight);
-    star.position = sf::Vector2f(rand_x, rand_y);
-    stars_.push_front(star);
+    if (star_chance == 9) {
+      stars_.push_front(generateStar(true));
+    }
   }
 }
