@@ -15,6 +15,7 @@ void Game::handleEvents() {
           switch (event_.key.code) {
             case sf::Keyboard::Num1:
               in_menu_ = false;
+              paused_ = false;
               break;
             case sf::Keyboard::Escape:
               quit_ = true;
@@ -24,6 +25,8 @@ void Game::handleEvents() {
           switch (event_.key.code) {
             case sf::Keyboard::Escape:
               in_menu_ = true;
+              paused_ = true;
+              background_.initStars();
               ship_.setInitialPosition();
               break;
             case sf::Keyboard::P:
@@ -63,6 +66,7 @@ bool Game::quit() {
 
 void Game::render() {
   window_.clear();
+  background_.draw(&window_);
   if (in_menu_) {
     ui_.drawMenu(&window_);
   } else {
@@ -98,5 +102,6 @@ void Game::update() {
       ship_.shoot();
     }
     ship_.updateProjectiles(delta_time);
+    background_.update(delta_time);
   }
 }

@@ -10,7 +10,8 @@
 class Ship {
  public:
   Ship() {
-    shape_.setRadius(kShipSize);
+    speed_ = kShipDefaultSpeed;
+    shape_.setRadius(kShipDefaultSize);
     shape_.setPointCount(3);
     shape_.setFillColor(sf::Color::White);
     shape_.setOrigin(shape_.getRadius(), shape_.getRadius());
@@ -34,7 +35,7 @@ class Ship {
  private:
   std::list <sf::Vector2f> projectiles_;
   sf::CircleShape shape_;
-  float speed_ = 400.f;
+  float speed_;
 };
 
 #endif  // SPACE_CHOOO_CLASSES_SHIP_H_

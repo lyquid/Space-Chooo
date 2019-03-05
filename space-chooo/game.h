@@ -4,6 +4,7 @@
 #include <SFML/Graphics.hpp>
 
 #include "config.h"
+#include "classes/background.h"
 #include "classes/player.h"
 #include "classes/ship.h"
 #include "classes/ui.h"
@@ -12,7 +13,7 @@ class Game {
  public:
   Game() {
     in_menu_ = true;
-    paused_ = false;
+    paused_ = true;
     quit_ = false;
     title_ = kAppName + " - v" + kAppVersion;
     settings_.antialiasingLevel = 8;
@@ -27,9 +28,10 @@ class Game {
   void update();
 
  private:
-  sf::Clock main_clock_;
+  Background background_;
   sf::Event event_;
   sf::Font font_;
+  sf::Clock main_clock_;
   bool in_menu_;
   UI ui_;
   bool paused_;

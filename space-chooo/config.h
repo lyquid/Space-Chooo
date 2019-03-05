@@ -9,7 +9,6 @@ const sf::String kAppVersion = "0.0";
 const sf::String kDefaultPauseMessage = "Paused. Press P or F1 to resume.";
 
 // app default settings
-// const float kPi = 3.14159f;
 const int kScreenHeight = 1024;
 const int kScreenWidth = 768;
 
@@ -18,6 +17,10 @@ const int kOptionFontSize = 40;
 const int kTitleFontSize = 120;
 
 // ship default settings
-const int kShipSize = 20;
+const int kShipDefaultSize = 20;
+const float kShipDefaultSpeed = 400.f;
+
+// background default settings
+const float kBackgroundDefaultSpeed = 100.f;
 
 #endif  // SPACE_CHOOO_CONFIG_H_
