@@ -1,5 +1,9 @@
 #include "ship.h"
 
+void Ship::clearProjectiles() {
+  projectiles_.clear();
+}
+
 void Ship::draw(sf::RenderWindow* window) {
   window->draw(shape_);
 }

@@ -28,6 +28,7 @@ void Game::handleEvents() {
               paused_ = true;
               background_.initStars();
               ship_.setInitialPosition();
+              ship_.clearProjectiles();
               break;
             case sf::Keyboard::P:
             case sf::Keyboard::F1:

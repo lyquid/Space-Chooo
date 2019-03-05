@@ -18,6 +18,7 @@ class Ship {
     setInitialPosition();
   }
   ~Ship() {}
+  void clearProjectiles();
   void draw(sf::RenderWindow* window);
   void drawProjectiles(sf::RenderWindow* window);
   void moveDown(float delta_time);
