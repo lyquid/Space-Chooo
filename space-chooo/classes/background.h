@@ -10,14 +10,22 @@
 struct Star {
   sf::Vector2f position;
   int intensity;
+  bool morning_star;
   float radius;
 };
+
+struct MorningStar {
+  sf::ConvexShape m_star_shape;
+  int intensity;
+  float size;
+}; 
 
 class Background {
  public:
   Background() {
     speed_ = kBackgroundDefaultSpeed;
     initStars();
+    initMorningStar();
   }
   ~Background() {}
   void draw(sf::RenderWindow* window);
@@ -27,6 +35,10 @@ class Background {
   void update(float delta_time);
 
  private:
+  void initMorningStar();
+  sf::Color calculateIntenistyColor(int intensity);
+  
+  MorningStar morning_star_;
   float speed_;
   std::list <Star> stars_;
 };
