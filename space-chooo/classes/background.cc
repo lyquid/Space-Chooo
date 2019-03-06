@@ -100,7 +100,7 @@ void Background::initMorningStar() {
 }
 
 void Background::initStars() {
-  int star_num = rand() % 200 + 100;
+  int star_num = rand() % 180 + 100;
   stars_.clear();
   for (int i = 0; i < star_num; ++i) {
     stars_.push_front(generateStar(false));
@@ -109,7 +109,7 @@ void Background::initStars() {
 
 void Background::update(float delta_time) {
   if (!stars_.empty()) {
-    int star_chance = rand() % 10;
+    int star_chance = rand() % 20;
     std::list <Star>::iterator star = stars_.begin();
     while (star != stars_.end()) {
       if (star->position.y - star->radius > kScreenHeight) {
@@ -119,7 +119,7 @@ void Background::update(float delta_time) {
         ++star;
       }
     }
-    if (star_chance == 9) {
+    if (star_chance == 0) {
       stars_.push_front(generateStar(true));
     }
   }
