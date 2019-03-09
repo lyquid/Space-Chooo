@@ -25,7 +25,7 @@ void UI::init(sf::Font* font) {
   initText(&title_, kAppName, font, kTitleFontSize);
   title_.setPosition(kScreenWidth / 2, kScreenHeight / 4);
   // options
-  initText(&options_[0], "Press 1 to start", font, kOptionFontSize);
+  initText(&options_[0], "Press 1 or Start", font, kOptionFontSize);
   options_[0].setPosition(kScreenWidth / 2, kScreenHeight / 2);
   // pause
   initText(&pause_text_, kDefaultPauseMessage, font, kOptionFontSize);
