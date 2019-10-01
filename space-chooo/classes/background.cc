@@ -2,6 +2,9 @@
 
 sf::Color Background::calculateBrightness(StarBrightness brightness) {
   switch (brightness) {
+    case Zero:
+      return sf::Color(0, 0, 0);
+      break;
     case Dim:
       return sf::Color(40, 40, 40);
       break;
@@ -40,7 +43,7 @@ void Background::drawStars(sf::RenderWindow* window) {
 } 
 
 Star Background::generateStar(bool playing) {
-  int brightness = rand() % 10 + 1;
+  int brightness = rand() % 10 + 1; // rnd 1 to 10
   int morning_star_ch = rand() % 2000;
   float rand_x, rand_y;
   Star star;
