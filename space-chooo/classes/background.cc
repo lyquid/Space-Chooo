@@ -1,7 +1,7 @@
 #include "background.h"
 
-sf::Color Background::calculateIntenistyColor(StarIntensities intensity) {
-  switch (intensity) {
+sf::Color Background::calculateBrightness(StarBrightness brightness) {
+  switch (brightness) {
     case Dim:
       return sf::Color(40, 40, 40);
       break;
@@ -33,45 +33,45 @@ void Background::drawStars(sf::RenderWindow* window) {
       circle.setRadius(star->radius);
       circle.setOrigin(star->radius, star->radius);
       circle.setPosition(star->position.x, star->position.y);
-      circle.setFillColor(calculateIntenistyColor(star->intensity));
+      circle.setFillColor(calculateBrightness(star->brightness));
       window->draw(circle);
     }
   }
 } 
 
 Star Background::generateStar(bool playing) {
-  int intensity = rand() % 10 + 1;
+  int brightness = rand() % 10 + 1;
   int morning_star_ch = rand() % 2000;
   float rand_x, rand_y;
   Star star;
-  switch (intensity) {
+  switch (brightness) {
     case 1:
     case 2:
     case 3:
-      intensity = Dim;
+      brightness = Dim;
       break;
     case 4:
     case 5:
     case 6:
-      intensity = Far;
+      brightness = Far;
       break;
     case 7:
     case 8:
     case 9:
-      intensity = Bright;
+      brightness = Bright;
       break;
     case 10:
-      intensity = Supernova;
+      brightness = Supernova;
       break;
   }
-  star.intensity = StarIntensities(intensity);
+  star.brightness = StarBrightness(brightness);
   rand_x = (float) (rand() % kScreenWidth);
   (playing) ? rand_y = 0 : rand_y = (float) (rand() % kScreenHeight);
   star.position = sf::Vector2f(rand_x, rand_y);
   star.radius = 1.f;
   if (morning_star_ch == 0){
     star.morning_star = true;
-    star.intensity = Zero; // ¿¿¿¿!!
+    // star.brightness = Zero; // ¿¿¿¿!!
   } else {
     star.morning_star = false;
   }
@@ -115,7 +115,7 @@ void Background::update(float delta_time) {
       if (star->position.y - star->radius > kScreenHeight) {
         star = stars_.erase(star);
       } else {
-        star->position.y += (speed_ * ((delta_time * (star->intensity + 1)))) / 30.f;
+        star->position.y += (speed_ * ((delta_time * (star->brightness + 1)))) / 30.f;
         ++star;
       }
     }
