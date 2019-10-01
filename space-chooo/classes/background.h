@@ -7,9 +7,11 @@
 
 #include "../config.h"
 
+enum StarIntensities {Zero, Dim, Far, Bright, Supernova};
+
 struct Star {
   sf::Vector2f position;
-  int intensity;
+  StarIntensities intensity;
   bool morning_star;
   float radius;
 };
@@ -36,7 +38,7 @@ class Background {
 
  private:
   void initMorningStar();
-  sf::Color calculateIntenistyColor(int intensity);
+  sf::Color calculateIntenistyColor(StarIntensities intensity);
   
   MorningStar morning_star_;
   float speed_;

@@ -1,21 +1,21 @@
 #include "background.h"
 
-sf::Color Background::calculateIntenistyColor(int intensity) {
+sf::Color Background::calculateIntenistyColor(StarIntensities intensity) {
   switch (intensity) {
-    case 0:
+    case Dim:
       return sf::Color(40, 40, 40);
       break;
-    case 1:
+    case Far:
       return sf::Color(80, 80, 80);
       break;
-    case 2:
+    case Bright:
       return sf::Color(170, 170, 170);
       break;
-    case 3:
+    case Supernova:
     default:
       return sf::Color(255, 255, 255);
       break;
-  } 
+  }  
 }
 
 void Background::draw(sf::RenderWindow* window) {
@@ -48,30 +48,30 @@ Star Background::generateStar(bool playing) {
     case 1:
     case 2:
     case 3:
-      intensity = 0;
+      intensity = Dim;
       break;
     case 4:
     case 5:
     case 6:
-      intensity = 1;
+      intensity = Far;
       break;
     case 7:
     case 8:
     case 9:
-      intensity = 2;
+      intensity = Bright;
       break;
     case 10:
-      intensity = 3;
+      intensity = Supernova;
       break;
   }
-  star.intensity = intensity;
+  star.intensity = StarIntensities(intensity);
   rand_x = (float) (rand() % kScreenWidth);
   (playing) ? rand_y = 0 : rand_y = (float) (rand() % kScreenHeight);
   star.position = sf::Vector2f(rand_x, rand_y);
   star.radius = 1.f;
   if (morning_star_ch == 0){
     star.morning_star = true;
-    star.intensity = 0;
+    star.intensity = Zero; // ¿¿¿¿!!
   } else {
     star.morning_star = false;
   }
