@@ -14,6 +14,9 @@ sf::Color Background::calculateBrightness(StarBrightness brightness) {
     case Bright:
       return sf::Color(170, 170, 170);
       break;
+    case MorningStarB:
+      return sf::Color(255, 255, 204);
+      break;
     case Supernova:
     default:
       return sf::Color(255, 255, 255);
@@ -99,7 +102,7 @@ void Background::initMorningStar() {
   morning_star_.size = 2.5f;
   morning_star_.m_star_shape.setScale(morning_star_.size, morning_star_.size);
   morning_star_.m_star_shape.setOrigin(morning_star_.size, morning_star_.size);
-  morning_star_.m_star_shape.setFillColor(sf::Color(255, 255, 204));
+  morning_star_.m_star_shape.setFillColor(calculateBrightness(MorningStarB));
 }
 
 void Background::initStars() {

@@ -7,7 +7,7 @@
 
 #include "../config.h"
 
-enum StarBrightness {Zero, Dim, Far, Bright, Supernova};
+enum StarBrightness {Zero, Dim, Far, Bright, MorningStarB, Supernova};
 
 struct Star {
   sf::Vector2f position;
